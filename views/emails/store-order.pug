@@ -1,0 +1,49 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    title Store Order Request
+    style.
+      body { font-family: Arial, sans-serif; color: #333; line-height: 1.5; }
+      h1 { color: #2c3e50; }
+      table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+      th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+      th { background-color: #f2f2f2; }
+      tfoot td { font-weight: bold; }
+  body
+    h1 New Store Order Request
+
+    p Hey #{contact.name} sent a request to order! Here is their contact info:
+
+    ul
+      li Name: #{contact.name}
+      li Email: #{contact.email}
+      li Phone: #{contact.phone}
+      li Preferred Contact: #{contact.preferredContact}
+
+    if cartItems && cartItems.length
+      h2 Cart Items
+      table
+        thead
+          tr
+            th Item
+            th Quantity
+            th Price
+            th Total
+        tbody
+          each item in cartItems
+            tr
+              td #{item.name}
+              td #{item.quantity}
+              td $#{item.price.toFixed(2)}
+              td $#{(item.price * item.quantity).toFixed(2)}
+        tfoot
+          - const subtotal = cartItems.reduce((sum, i) => sum + i.price * i.quantity, 0)
+          tr
+            td(colspan="3") Subtotal
+            td $#{subtotal.toFixed(2)}
+          tr
+            td(colspan="3") Grand Total
+            td $#{subtotal.toFixed(2)}
+    else
+      p No items were included in the order.

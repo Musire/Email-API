@@ -1,0 +1,27 @@
+# Node modules
+/node_modules/
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# Build output
+dist/
+build/
+
+# Ignore specific project folders
+notes/
+config/
+tests/
+__mocks__/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/editor configs
+.vscode/
+.idea/
