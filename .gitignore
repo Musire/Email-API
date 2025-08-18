@@ -14,7 +14,6 @@ build/
 
 # Ignore specific project folders
 notes/
-config/
 tests/
 __mocks__/
 
